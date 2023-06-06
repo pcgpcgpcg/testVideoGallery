@@ -7,9 +7,20 @@ target 'testVideoGallery' do
 
   pod 'SnapKit', '~> 5.6.0'
   pod 'Alamofire', '~> 5.2'
+  pod 'SDWebImage', '5.10.3'
   pod 'PromisesSwift'
   pod 'Logging'
 
   # Pods for testVideoGallery
 
+end
+
+post_install do |installer|
+  installer.generated_projects.each do |proj|
+    proj.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+      end
+    end
+  end
 end

@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040FDC0B2A2F065800085F5B /* VideoGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FDC0A2A2F065800085F5B /* VideoGalleryCollectionViewCell.swift */; };
+		040FDC0E2A2F15C200085F5B /* RecordVideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FDC0D2A2F15C200085F5B /* RecordVideoInfo.swift */; };
 		5745DAC92A2CF4E600435CB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5745DAC82A2CF4E600435CB5 /* AppDelegate.swift */; };
 		5745DACB2A2CF4E600435CB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5745DACA2A2CF4E600435CB5 /* SceneDelegate.swift */; };
 		5745DACD2A2CF4E600435CB5 /* VideoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5745DACC2A2CF4E600435CB5 /* VideoGalleryViewController.swift */; };
 		5745DAD22A2CF4E700435CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5745DAD12A2CF4E700435CB5 /* Assets.xcassets */; };
 		5745DAD52A2CF4E700435CB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5745DAD32A2CF4E700435CB5 /* LaunchScreen.storyboard */; };
+		AF7B0919B99E9C03B7452D01 /* Pods_testVideoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8373C90795AE6694FDB673BB /* Pods_testVideoGallery.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040FDC0A2A2F065800085F5B /* VideoGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		040FDC0D2A2F15C200085F5B /* RecordVideoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVideoInfo.swift; sourceTree = "<group>"; };
+		49AFB39E020DFC421EA4A371 /* Pods-testVideoGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testVideoGallery.release.xcconfig"; path = "Target Support Files/Pods-testVideoGallery/Pods-testVideoGallery.release.xcconfig"; sourceTree = "<group>"; };
 		5745DAC52A2CF4E600435CB5 /* testVideoGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testVideoGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5745DAC82A2CF4E600435CB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5745DACA2A2CF4E600435CB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +28,8 @@
 		5745DAD12A2CF4E700435CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5745DAD42A2CF4E700435CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5745DAD62A2CF4E700435CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8373C90795AE6694FDB673BB /* Pods_testVideoGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testVideoGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		993133179A0082BF1ECB37DA /* Pods-testVideoGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testVideoGallery.debug.xcconfig"; path = "Target Support Files/Pods-testVideoGallery/Pods-testVideoGallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF7B0919B99E9C03B7452D01 /* Pods_testVideoGallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040FDC092A2F05FF00085F5B /* childrenViews */ = {
+			isa = PBXGroup;
+			children = (
+				040FDC0A2A2F065800085F5B /* VideoGalleryCollectionViewCell.swift */,
+			);
+			path = childrenViews;
+			sourceTree = "<group>";
+		};
+		040FDC0C2A2F159700085F5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				040FDC0D2A2F15C200085F5B /* RecordVideoInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5745DABC2A2CF4E600435CB5 = {
 			isa = PBXGroup;
 			children = (
 				5745DAC72A2CF4E600435CB5 /* testVideoGallery */,
 				5745DAC62A2CF4E600435CB5 /* Products */,
+				EA69257EB51D64DC8BD103F2 /* Pods */,
+				E79D5CEAB914679B1920972A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +81,8 @@
 		5745DAC72A2CF4E600435CB5 /* testVideoGallery */ = {
 			isa = PBXGroup;
 			children = (
+				040FDC0C2A2F159700085F5B /* Models */,
+				040FDC092A2F05FF00085F5B /* childrenViews */,
 				5745DAC82A2CF4E600435CB5 /* AppDelegate.swift */,
 				5745DACA2A2CF4E600435CB5 /* SceneDelegate.swift */,
 				5745DACC2A2CF4E600435CB5 /* VideoGalleryViewController.swift */,
@@ -64,6 +93,23 @@
 			path = testVideoGallery;
 			sourceTree = "<group>";
 		};
+		E79D5CEAB914679B1920972A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8373C90795AE6694FDB673BB /* Pods_testVideoGallery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA69257EB51D64DC8BD103F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				993133179A0082BF1ECB37DA /* Pods-testVideoGallery.debug.xcconfig */,
+				49AFB39E020DFC421EA4A371 /* Pods-testVideoGallery.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5745DAD92A2CF4E700435CB5 /* Build configuration list for PBXNativeTarget "testVideoGallery" */;
 			buildPhases = (
+				49A9F68EB559E7AB363D118F /* [CP] Check Pods Manifest.lock */,
 				5745DAC12A2CF4E600435CB5 /* Sources */,
 				5745DAC22A2CF4E600435CB5 /* Frameworks */,
 				5745DAC32A2CF4E600435CB5 /* Resources */,
+				8524AAF2E708BE83382E86E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,12 +177,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		49A9F68EB559E7AB363D118F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-testVideoGallery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8524AAF2E708BE83382E86E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-testVideoGallery/Pods-testVideoGallery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-testVideoGallery/Pods-testVideoGallery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-testVideoGallery/Pods-testVideoGallery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5745DAC12A2CF4E600435CB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040FDC0E2A2F15C200085F5B /* RecordVideoInfo.swift in Sources */,
 				5745DACD2A2CF4E600435CB5 /* VideoGalleryViewController.swift in Sources */,
+				040FDC0B2A2F065800085F5B /* VideoGalleryCollectionViewCell.swift in Sources */,
 				5745DAC92A2CF4E600435CB5 /* AppDelegate.swift in Sources */,
 				5745DACB2A2CF4E600435CB5 /* SceneDelegate.swift in Sources */,
 			);
@@ -270,6 +362,7 @@
 		};
 		5745DADA2A2CF4E700435CB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 993133179A0082BF1ECB37DA /* Pods-testVideoGallery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +390,7 @@
 		};
 		5745DADB2A2CF4E700435CB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49AFB39E020DFC421EA4A371 /* Pods-testVideoGallery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
