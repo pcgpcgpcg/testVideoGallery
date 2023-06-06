@@ -81,7 +81,8 @@ extension VideoGalleryViewController : UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for:indexPath)
         if let cell = cell as? VideoGalleryCollectionViewCell{
-            cell.backgroundColor = .green;
+            cell.delegate = self
+            //cell.backgroundColor = .green;
             //cell.update(videoInfo: RecordVideoInfo)
         }
         return cell;

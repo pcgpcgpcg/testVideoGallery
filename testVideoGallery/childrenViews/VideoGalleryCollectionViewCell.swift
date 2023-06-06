@@ -27,11 +27,12 @@ final class VideoGalleryCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(videoThumbnailView)
         videoThumbnailView.snp.makeConstraints { (maker) in
             maker.left.top.right.equalToSuperview();
-            maker.height.equalToSuperview().inset(40)
+            maker.height.equalToSuperview().inset(30)
         }
         //Label
-        videoNameLabel = UILabel();
+        videoNameLabel = UILabel()
         guard let videoNameLabel = videoNameLabel else { return };
+        videoNameLabel.text = "未找到视频"
         videoNameLabel.font = UIFont.systemFont(ofSize: 12)
         contentView.addSubview(videoNameLabel)
         videoNameLabel.snp.makeConstraints { (make) in
@@ -44,11 +45,13 @@ final class VideoGalleryCollectionViewCell: UICollectionViewCell {
         videoDownButton = UIButton(type:.system);
         guard let videoDownButton = videoDownButton else { return };
         videoDownButton.tintColor = UIColor.black
-        videoDownButton.setImage(UIImage(), for: .normal)
+        videoDownButton.setImage(UIImage(named: "download"), for: .normal)
         contentView.addSubview(videoDownButton)
         videoDownButton.snp.makeConstraints { (maker) in
+            maker.top.equalTo(videoThumbnailView.snp.bottom).offset(10)
             maker.right.equalToSuperview().inset(10);
-            maker.center.equalTo(videoNameLabel.snp.center)
+            maker.width.height.equalTo(24)
+            maker.bottom.equalTo(videoNameLabel.snp.bottom)
         }
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapVideoGalleryCell(_:)))
