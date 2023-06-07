@@ -7,6 +7,7 @@ target 'testVideoGallery' do
 
   pod 'SnapKit', '~> 5.6.0'
   pod 'Alamofire', '~> 5.2'
+  pod 'SwiftyJSON', '4.3.0'
   pod 'SDWebImage', '5.10.3'
   pod 'PromisesSwift'
   pod 'Logging'

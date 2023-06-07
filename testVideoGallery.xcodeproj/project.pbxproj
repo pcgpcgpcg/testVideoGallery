@@ -14,6 +14,8 @@
 		5745DACD2A2CF4E600435CB5 /* VideoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5745DACC2A2CF4E600435CB5 /* VideoGalleryViewController.swift */; };
 		5745DAD22A2CF4E700435CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5745DAD12A2CF4E700435CB5 /* Assets.xcassets */; };
 		5745DAD52A2CF4E700435CB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5745DAD32A2CF4E700435CB5 /* LaunchScreen.storyboard */; };
+		57926AD42A301AE80099F97B /* MeetingSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57926AD32A301AE80099F97B /* MeetingSDK.swift */; };
+		57926AD72A301E2B0099F97B /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57926AD62A301E2B0099F97B /* Environment.swift */; };
 		AF7B0919B99E9C03B7452D01 /* Pods_testVideoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8373C90795AE6694FDB673BB /* Pods_testVideoGallery.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		5745DAD12A2CF4E700435CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5745DAD42A2CF4E700435CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5745DAD62A2CF4E700435CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57926AD32A301AE80099F97B /* MeetingSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSDK.swift; sourceTree = "<group>"; };
+		57926AD62A301E2B0099F97B /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		8373C90795AE6694FDB673BB /* Pods_testVideoGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testVideoGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		993133179A0082BF1ECB37DA /* Pods-testVideoGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testVideoGallery.debug.xcconfig"; path = "Target Support Files/Pods-testVideoGallery/Pods-testVideoGallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +85,8 @@
 		5745DAC72A2CF4E600435CB5 /* testVideoGallery */ = {
 			isa = PBXGroup;
 			children = (
+				57926AD52A301E1A0099F97B /* App */,
+				57926AD22A301AD30099F97B /* Network */,
 				040FDC0C2A2F159700085F5B /* Models */,
 				040FDC092A2F05FF00085F5B /* childrenViews */,
 				5745DAC82A2CF4E600435CB5 /* AppDelegate.swift */,
@@ -91,6 +97,22 @@
 				5745DAD62A2CF4E700435CB5 /* Info.plist */,
 			);
 			path = testVideoGallery;
+			sourceTree = "<group>";
+		};
+		57926AD22A301AD30099F97B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				57926AD32A301AE80099F97B /* MeetingSDK.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		57926AD52A301E1A0099F97B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				57926AD62A301E2B0099F97B /* Environment.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		E79D5CEAB914679B1920972A /* Frameworks */ = {
@@ -224,8 +246,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57926AD42A301AE80099F97B /* MeetingSDK.swift in Sources */,
 				040FDC0E2A2F15C200085F5B /* RecordVideoInfo.swift in Sources */,
 				5745DACD2A2CF4E600435CB5 /* VideoGalleryViewController.swift in Sources */,
+				57926AD72A301E2B0099F97B /* Environment.swift in Sources */,
 				040FDC0B2A2F065800085F5B /* VideoGalleryCollectionViewCell.swift in Sources */,
 				5745DAC92A2CF4E600435CB5 /* AppDelegate.swift in Sources */,
 				5745DACB2A2CF4E600435CB5 /* SceneDelegate.swift in Sources */,

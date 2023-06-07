@@ -68,9 +68,15 @@ final class VideoGalleryCollectionViewCell: UICollectionViewCell {
 
     func update(videoInfo: RecordVideoInfo) {
         guard let videoThumbnailView = videoThumbnailView else { return };
-        videoThumbnailView.sd_setImage(with: URL(string: videoInfo.videoUrl), placeholderImage: UIImage(named: "videobkg"));
+        if let videoThumbnailUrl = videoInfo.getVideoThumbnailUrl(){
+            videoThumbnailView.sd_setImage(with: URL(string: videoThumbnailUrl), placeholderImage: UIImage(named: "videobkg"));
+        }
+        
         guard let videoNameLabel = videoNameLabel else { return };
-        videoNameLabel.text = videoInfo.videoName;
+        if let videoStartTime =  videoInfo.getVideoStartTime(){
+            videoNameLabel.text = videoStartTime;
+        }
+        
 //        videoNameLabel.snp.remakeConstraints { (make) in
 //            make.left.equalToSuperview().offset(10)
 //            make.right.equalToSuperview().inset(10)
