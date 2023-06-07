@@ -8,11 +8,13 @@
 import UIKit
 import AVKit
 import SnapKit
+import Hydra
 
 
 public class VideoGalleryViewController: UIViewController {
     
     private var videoGalleryCollectionView: UICollectionView?
+    var recordVideoInfoList:[RecordVideoInfo]?
     
     public init() {
         super.init(nibName: nil, bundle: nil)
@@ -26,6 +28,28 @@ public class VideoGalleryViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpCollectionView();
+        //转圈等待
+        //获取预约会议列表
+        MeetingSDK.sharedInstance().getRecordVideoInfo().then(in: .main, {recordVideoInfoListResult in
+            self.recordVideoInfoList = recordVideoInfoListResult.recordVideoInfoList;
+            //更新collectionView
+            if let videoGalleryCollectionView = self.videoGalleryCollectionView {
+                videoGalleryCollectionView.reloadData();
+            }
+            //取消转圈等待
+        }).catch(in: .main, {error in
+            print("getReservedMeetingList failed: \(error)")
+            //如果token失效,则注销并回到登录界面
+            if case let MeetingJsonError.tokenExpired(info) = error {
+                print("joinMeetingFailed: \(info)")
+                //self.view.makeToast("获取录制视频列表失败,请检查网络", duration: 2.0, position: .center)
+                
+            }
+            if case MeetingJsonError.getMeetingListFailed(let msg) = error {
+                //self.view.makeToast("网络异常，请检查网络设置", duration:2,position:.top)
+            }
+        })
+        
         
     }
     
@@ -77,13 +101,20 @@ extension VideoGalleryViewController : UICollectionViewDelegateFlowLayout {
 
 extension VideoGalleryViewController : UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if let recordVideoInfoList = recordVideoInfoList {
+            return recordVideoInfoList.count
+        }else{
+            return 0
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for:indexPath)
         if let cell = cell as? VideoGalleryCollectionViewCell{
             cell.delegate = self
+            if let recordVideoInfoList = recordVideoInfoList {
+                cell.update(videoInfo: recordVideoInfoList[indexPath.row])
+            }
             //cell.backgroundColor = .green;
             //cell.update(videoInfo: RecordVideoInfo)
         }

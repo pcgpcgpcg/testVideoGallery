@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-import Promises
+import Hydra
 import SwiftyJSON
 
 public enum MeetingJsonError: Error {
@@ -36,7 +36,7 @@ public enum MeetingJsonError: Error {
     case getMeetingInfoFailed(String)
 }
 
-final internal class MeetingSDK : NSObject {
+public class MeetingSDK : NSObject {
     
     //单例实现
     private static let sharedMeetingSDK: MeetingSDK = {
@@ -44,12 +44,17 @@ final internal class MeetingSDK : NSObject {
         return shared
     }()
     
-    public func getAppVersionInfo() ->Promise<RecordVideoInfoListResult> {
+    // Accessors
+    class func sharedInstance() -> MeetingSDK {
+        return sharedMeetingSDK
+    }
+    
+    func getRecordVideoInfo() ->Promise<RecordVideoInfoListResult> {
         var headers: HTTPHeaders = [
             "Authorization": ""
         ]
         
-        return Promise { fullfill, reject in
+        return Promise<RecordVideoInfoListResult>({ resolve, reject, _ in
             AF.request(Environment.default.httpServerUrl+"/recmgr/listnoauth",headers: headers).responseJSON { response in
                 
                         switch response.result {
@@ -62,7 +67,7 @@ final internal class MeetingSDK : NSObject {
                                     //let recordVideoList = AppVersionInfo.init(json["data"])
                                     var videoInfoList:[RecordVideoInfo] = []
                                     for (_, subJson):(String,JSON) in json["data"]["records"] {
-                                        let videoInfo = RecordVideoInfo.init(json)
+                                        let videoInfo = RecordVideoInfo.init(subJson)
                                         videoInfoList.append(videoInfo)
                                     }
                                     
@@ -73,7 +78,8 @@ final internal class MeetingSDK : NSObject {
                                         current: json["data"]["current"].intValue, //当前页面
                                         pages: json["data"]["pages"].intValue //总页数
                                     )
-                                    fullfill(recordVideoInfoListResult)
+                                    
+                                    resolve(recordVideoInfoListResult)
                                 }else{
                                     reject(MeetingJsonError.getMeetingInfoFailed("没拿到"))
                                 }
@@ -83,7 +89,7 @@ final internal class MeetingSDK : NSObject {
                         }
                 }
             
-        }
+        })
     }
     
     
