@@ -26,6 +26,7 @@ public class VideoGalleryViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "录制视频列表"
         // Do any additional setup after loading the view.
         setUpCollectionView();
         //转圈等待
@@ -94,7 +95,8 @@ extension VideoGalleryViewController : UICollectionViewDelegateFlowLayout {
         guard let lay = collectionViewLayout as? UICollectionViewFlowLayout else {
             return CGSize(width: 0, height: 0);
         }
-        let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing;
+        let columnNum = CGFloat(UIDevice.current.model == "iPad" ? 4:2)
+        let widthPerItem = collectionView.frame.width / columnNum - lay.minimumInteritemSpacing;
         return CGSize(width: widthPerItem - 8, height: 250);
     }
 }
