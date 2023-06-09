@@ -68,8 +68,7 @@ struct RecordVideoInfo {
         guard let fileName=fileName else{
             return nil
         }
-        return filePath+fileName;
-        
+        return replaceSuffix(originalString: filePath+fileName, originalSuffix: ".mp4", replaceSuffix: ".jpg")
     }
     
     public func getVideoStartTime()->String?{

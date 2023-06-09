@@ -123,9 +123,10 @@ extension VideoGalleryViewController : UICollectionViewDataSource {
 }
 
 extension VideoGalleryViewController : VideoGalleryCollectionViewCellDelegate {
-    func didTapCell(_ cell: VideoGalleryCollectionViewCell) {
+    func didTapCell(_ cell: VideoGalleryCollectionViewCell, videoUrl: String?) {
+        guard let videoUrl = videoUrl else { return }
         //navigate to video player
-        guard let url = URL(string: "https://rr1---sn-i3b7knld.googlevideo.com/videoplayback?expire=1686124033&ei=oeF_ZNfZLMSD4gHnlZToDg&ip=31.171.154.75&id=o-AMiJWA3RjJP6phYzZlLQ7zOsSPgnNNLSiN_U75NWp0HT&itag=18&source=youtube&requiressl=yes&spc=qEK7B5DYJaq82sJRRITJ76tl3J_xswSiK1FVk1obwg&vprv=1&svpuc=1&mime=video%2Fmp4&ns=nzMvk1UWjT9Wv294b75l3oEN&gir=yes&clen=57990994&ratebypass=yes&dur=890.740&lmt=1683915337434589&fexp=24007246,51000012,51000022&c=WEB&txp=5538434&n=kt0hmsR1fvj1hA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhAP5M3rrDAXovCtiIxp3nAa9WQDKj-0KBYgDufrR_lvFMAiAVKkNSfQbmBN4lnYRBakTP9NihXrnrH6DVdTUffX5EKA%3D%3D&rm=sn-5cjvh-up5z7e,sn-nv4sr7l&req_id=5b53e12116f0a3ee&cmsv=e&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mh=a2&mip=203.91.85.202&mm=29&mn=sn-i3b7knld&ms=rdu&mt=1686102061&mv=m&mvi=1&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAOLuKTS0e6rQzO8mGUQejtLGHFGuohQEmis3B_d1viS9AiEA8w3x4QXjvOwxYVFdgfiUqtINsniiq7Zn9_pPGRkHp2Y%3D") else {
+        guard let url = URL(string: videoUrl) else {
                     return
                 }
                 // Create an AVPlayer, passing it the HTTP Live Streaming URL.

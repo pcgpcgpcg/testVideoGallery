@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         viewController = VideoGalleryViewController();
         if let viewController = viewController {
             self.window = UIWindow(windowScene: ws)
-            self.window?.backgroundColor = .red
+            //self.window?.backgroundColor = .red
             let navigation = UINavigationController(rootViewController: viewController)
             self.window?.rootViewController = navigation
             self.window?.makeKeyAndVisible()

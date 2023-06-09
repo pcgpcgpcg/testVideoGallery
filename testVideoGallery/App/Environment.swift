@@ -7,7 +7,7 @@
 
 import Foundation
 struct Environment {
-    var httpServerUrl: String = "http://49.232.122.245:8200"
+    var httpServerUrl: String = "http://192.168.31.90:8200"
     
     static var `default`: Environment = {
         var env = Environment()

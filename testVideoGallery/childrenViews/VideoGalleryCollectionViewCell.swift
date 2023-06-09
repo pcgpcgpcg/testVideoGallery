@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 protocol VideoGalleryCollectionViewCellDelegate: AnyObject {
-    func didTapCell(_ cell: VideoGalleryCollectionViewCell)
+    func didTapCell(_ cell: VideoGalleryCollectionViewCell, videoUrl: String?)
 }
 
 final class VideoGalleryCollectionViewCell: UICollectionViewCell {
@@ -18,6 +18,7 @@ final class VideoGalleryCollectionViewCell: UICollectionViewCell {
     private var videoNameLabel : UILabel?
     private var videoDownButton : UIButton?
     weak var delegate: VideoGalleryCollectionViewCellDelegate?
+    var recordVideoInfo: RecordVideoInfo?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,11 +64,15 @@ final class VideoGalleryCollectionViewCell: UICollectionViewCell {
     }
     
     @objc private func didTapVideoGalleryCell(_ sender: UITapGestureRecognizer) {
-        delegate?.didTapCell(self)
+        if let videoInfo = recordVideoInfo{
+            delegate?.didTapCell(self, videoUrl: videoInfo.getVideoUrl())
+        }
+        
     }
 
     func update(videoInfo: RecordVideoInfo) {
         guard let videoThumbnailView = videoThumbnailView else { return };
+        recordVideoInfo = videoInfo
         if let videoThumbnailUrl = videoInfo.getVideoThumbnailUrl(){
             videoThumbnailView.sd_setImage(with: URL(string: videoThumbnailUrl), placeholderImage: UIImage(named: "videobkg"));
         }
